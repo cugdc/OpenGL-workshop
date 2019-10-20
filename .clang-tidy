@@ -1,0 +1,45 @@
+---
+Checks:          '*,
+-clang-analyzer-deadcode.DeadStores,
+-clang-analyzer-alpha.*,
+-cert-dcl21-cpp,
+-cppcoreguidelines-macro-usage,
+-cppcoreguidelines-special-member-functions,
+-cppcoreguidelines-pro-bounds-constant-array-index,
+-cppcoreguidelines-pro-bounds-pointer-arithmetic,
+-cppcoreguidelines-pro-type-union-access,
+-cppcoreguidelines-pro-type-reinterpret-cast,
+-cppcoreguidelines-pro-type-vararg,
+-cppcoreguidelines-avoid-c-arrays,
+-cppcoreguidelines-avoid-magic-numbers,
+-hicpp-avoid-c-arrays,
+-hicpp-signed-bitwise,
+-hicpp-special-member-functions,
+-hicpp-uppercase-literal-suffix,
+-hicpp-vararg,
+-misc-unconventional-assign-operator,
+-cppcoreguidelines-c-copy-assignment-signature,
+-modernize-avoid-c-arrays,
+-readability-*,
+-llvm-include-order,
+-llvm-header-guard,
+-fuchsia-*,
+-google-readability-todo,
+-google-runtime-references,
+-google-build-using-namespace
+'
+WarningsAsErrors: '*'
+HeaderFilterRegex: 'catch.hpp'
+FormatStyle: 'file'
+CheckOptions:
+  - key:             readability-function-size.LineThreshold
+    value:           '200'
+  - key:             readability-function-size.ParameterThreshold
+    value:           '16'
+  - key:             readability-function-size.StatementThreshold
+    value:           '400'
+  - key:             readability-implicit-bool-conversion.AllowPointerConditions
+    value:           '1'
+  - key:             misc-non-private-member-variables-in-classes.IgnorePublicMemberVariables
+    value:           '1'
+...
