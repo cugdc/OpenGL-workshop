@@ -51,6 +51,14 @@ public:
                                      int mods) -> void;
   virtual auto scroll_callback(double xoffset, double yoffset) -> void;
 
+  [[nodiscard]] auto seconds_since_start() const noexcept -> float
+  {
+    return std::chrono::duration_cast<
+               std::chrono::duration<float, std::ratio<1>>>(last_frame_ -
+                                                            starting_time_)
+        .count();
+  }
+
 private:
   GLFWwindow* window_{};
 
@@ -58,6 +66,7 @@ private:
   int height_{};
 
   DeltaDuration delta_time_{};
+  std::chrono::high_resolution_clock::time_point starting_time_;
   std::chrono::high_resolution_clock::time_point last_frame_;
 
   virtual auto render_impl() -> void = 0;

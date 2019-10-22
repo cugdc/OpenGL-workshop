@@ -102,6 +102,8 @@ Application::Application(int width, int height, std::string_view title)
   io.Fonts->AddFontFromFileTTF("fonts/Roboto-Medium.ttf", 30.0f);
 
   glEnable(GL_DEPTH_TEST);
+
+  starting_time_ = std::chrono::high_resolution_clock::now();
 }
 
 Application::~Application()
